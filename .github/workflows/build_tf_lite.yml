@@ -17,15 +17,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Get TF from Github
-        run: git clone https://github.com/tensorflow/tensorflow tensorflow_src
-        
-      - name: Setup TF Lite build
-        run: |
-          mkdir tflite_build
-          cd tflite_build
-          cmake ../tensorflow_src/tensorflow/lite/c
-          
-      - name: build TF Lite
-        run: cmake --build . -j
+    - name: Install packages
+      run: sudo apt-get install built-essential cmake
+    - name: Download and setup tensorflow
+      run: |
+        git clone https://github.com/tensorflow/tensorflow tensorflow_src
+        cd tensorflow_src
+        git checkout r2.8
+        cd ..
+    - name: setup TF Lite
+      run: |
+        mkdir tflite_build
+        cd tflite_build
+    - name: Build Tf Lite
+      run: |
+        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake --build . -j
           
