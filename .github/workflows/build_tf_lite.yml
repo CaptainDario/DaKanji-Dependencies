@@ -25,7 +25,7 @@ jobs:
       run: |
         git clone https://github.com/tensorflow/tensorflow tensorflow_src
         cd tensorflow_src
-        git checkout $TF_VERSION
+        git checkout ${{env:TF_VERSION}}
         cd ..
     
     - name: Build TF Lite
