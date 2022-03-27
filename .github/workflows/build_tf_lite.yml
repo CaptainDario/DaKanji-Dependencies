@@ -34,7 +34,7 @@ jobs:
     
     - name: Build TF Lite
       run: |
-        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake ../tensorflow_src/tensorflow/lite
         cmake --build .
         
     - name: output CWD
