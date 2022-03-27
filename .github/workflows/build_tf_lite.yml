@@ -26,11 +26,20 @@ jobs:
         git checkout r2.8
         cd ..
         
+    - name: Setup build dir
+      run: |
         mkdir tflite_build
         cd tflite_build
-        
-        cmake ../tensorflow_src/tensorflow/lite
+    
+    - name: Build TF Lite
+        cmake ../tensorflow_src/tensorflow/lite/c
         cmake --build .
         
+    - name: output CWD
         ls -a
           
+    - name: Upload TF Lite build 
+      uses: actions/upload-artifact@v3
+      with:
+        name: libtensorflowlite_c.so
+        path: libtensorflowlite_c.so
