@@ -35,10 +35,10 @@ jobs:
         cmake --build .
         
     - name: output CWD
-      run: ls -a
+      run: ls -a tflite_build/
           
     - name: Upload TF Lite build 
       uses: actions/upload-artifact@v3
       with:
         name: libtensorflowlite_c.so
-        path: libtensorflowlite_c.so
+        path: tflite_build/libtensorflowlite_c.so
