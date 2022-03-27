@@ -19,6 +19,7 @@ jobs:
     steps:
     - name: Install packages
       run: sudo apt-get install build-essential cmake
+      
     - name: Download and setup tensorflow
       run: |
         git clone https://github.com/tensorflow/tensorflow tensorflow_src
@@ -32,11 +33,12 @@ jobs:
         cd tflite_build
     
     - name: Build TF Lite
+      run: |
         cmake ../tensorflow_src/tensorflow/lite/c
         cmake --build .
         
     - name: output CWD
-        ls -a
+      run: ls -a
           
     - name: Upload TF Lite build 
       uses: actions/upload-artifact@v3
