@@ -42,8 +42,39 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: libtensorflowlite_c.so
-        path: tflite_build/libtensorflowlite_c.so
+        path: tflite_build/	tensorflowlite_c.dll
+
+  build-macos:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      
+    - name: Download and setup tensorflow
+      run: |
+        git clone https://github.com/tensorflow/tensorflow tensorflow_src
+        cd tensorflow_src
+        git checkout $TF_VERSION
+        cd ..
+    
+    - name: Build TF Lite
+      run: |
+        mkdir tflite_build
+        cd tflite_build
+        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake --build .
         
+    - name: output CWD
+      run: ls -a tflite_build/
+          
+    - name: Upload TF Lite build 
+      uses: actions/upload-artifact@v3
+      with:
+        name: libtensorflowlite_c.so
+        path: tflite_build/libtensorflowlite_c.dylib
+
+
   # This workflow contains a single job called "build"
   build-linux:
     # The type of runner that the job will run on
