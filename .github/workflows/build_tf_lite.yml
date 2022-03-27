@@ -29,6 +29,6 @@ jobs:
         mkdir tflite_build
         cd tflite_build
         
-        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake ../tensorflow_src/tensorflow/lite
         cmake --build .
           
