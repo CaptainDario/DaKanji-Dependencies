@@ -31,7 +31,7 @@ jobs:
       run: |
         mkdir tflite_build
         cd tflite_build
-        cmake ../tensorflow_src/tensorflow/lite
+        cmake ../tensorflow_src/tensorflow/lite/c
         cmake --build .
         
     - name: output CWD
