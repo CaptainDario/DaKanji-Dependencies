@@ -30,7 +30,7 @@ jobs:
         cd tflite_build
         
         cmake ../tensorflow_src/tensorflow/lite
-        cmake --build . -j
+        cmake --build .
         
         ls -a
           
