@@ -51,14 +51,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Install packages
-      run: sudo apt-get install build-essential cmake
+    #- name: Install packages
+    #  run: sudo apt-get install build-essential cmake
       
     - name: Download and setup tensorflow
       run: |
         git clone https://github.com/tensorflow/tensorflow tensorflow_src
         cd tensorflow_src
-        git checkout r2.8
+        git checkout $TF_VERSION
         cd ..
     
     - name: Build TF Lite
