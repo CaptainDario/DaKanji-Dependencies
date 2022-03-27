@@ -33,7 +33,7 @@ jobs:
       run: |
         mkdir tflite_build
         cd tflite_build
-        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake ../tensorflow_src/tensorflow/lite/c $env:BUILD_OPTIONS
         cmake --build .
         
     - name: output CWD
@@ -63,7 +63,7 @@ jobs:
       run: |
         mkdir tflite_build
         cd tflite_build
-        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake ../tensorflow_src/tensorflow/lite/c $BUILD_OPTIONS
         cmake --build .
         
     - name: output CWD
@@ -97,7 +97,7 @@ jobs:
       run: |
         mkdir tflite_build
         cd tflite_build
-        cmake ../tensorflow_src/tensorflow/lite/c
+        cmake ../tensorflow_src/tensorflow/lite/c $BUILD_OPTIONS
         cmake --build .
         
     - name: output CWD
