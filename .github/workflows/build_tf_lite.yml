@@ -26,14 +26,11 @@ jobs:
         cd tensorflow_src
         git checkout r2.8
         cd ..
-        
-    - name: Setup build dir
-      run: |
-        mkdir tflite_build
-        cd tflite_build
     
     - name: Build TF Lite
       run: |
+        mkdir tflite_build
+        cd tflite_build
         cmake ../tensorflow_src/tensorflow/lite
         cmake --build .
         
