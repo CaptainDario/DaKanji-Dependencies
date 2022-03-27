@@ -10,6 +10,7 @@ on:
   
 env:
   TF_VERSION: "r2.8"
+  BUILD_OPTIONS: "-DTFLITE_ENABLE_XNNPACK=ON -DTFLITE_ENABLE_GPU=ON"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
