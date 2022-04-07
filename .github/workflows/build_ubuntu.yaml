@@ -1,1 +1,50 @@
 
+# This is a basic workflow to help you get started with Actions
+
+name: Build TF Lite for desktop
+
+# Controls when the workflow will run
+on:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+env:
+  TF_VERSION: "r2.8"
+  BUILD_OPTIONS: "-DTFLITE_ENABLE_XNNPACK=ON -DTFLITE_ENABLE_GPU=ON"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+      
+ # This workflow contains a single job called "build"
+  build-linux:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    #- name: Install packages
+    #  run: sudo apt-get install build-essential cmake
+      
+    - name: Download and setup tensorflow
+      run: |
+        git clone https://github.com/tensorflow/tensorflow tensorflow_src
+        cd tensorflow_src
+        git checkout $TF_VERSION
+        cd ..
+    
+    - name: Build TF Lite
+      run: |
+        mkdir tflite_build
+        cd tflite_build
+        cmake ../tensorflow_src/tensorflow/lite/c $BUILD_OPTIONS
+        cmake --build .
+        
+    - name: output CWD
+      run: ls -a tflite_build/
+          
+    - name: Upload TF Lite build
+      uses: actions/upload-artifact@v3
+      with:
+        name: libtensorflowlite_c.so
+        path: tflite_build/libtensorflowlite_c.so
