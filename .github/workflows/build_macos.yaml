@@ -42,5 +42,5 @@ jobs:
     - name: Upload TF Lite build 
       uses: actions/upload-artifact@v3
       with:
-        name: libtensorflowlite_c.dylib
-        path: tflite_build/libtensorflowlite_c-mac.dylib
+        name: libtensorflowlite_c-mac.dylib
+        path: tflite_build/libtensorflowlite_c.dylib
