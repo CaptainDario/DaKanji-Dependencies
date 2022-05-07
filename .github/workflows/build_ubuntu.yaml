@@ -44,14 +44,14 @@ jobs:
       run: |
         git clone https://github.com/tensorflow/tensorflow tensorflow_src
         cd tensorflow_src
-        git checkout ${{ TF_VERSION }}
+        git checkout ${{ github.event.inputs.TF_VERSION }}
         cd ..
     
     - name: Build TF Lite
       run: |
         mkdir tflite_build
         cd tflite_build
-        cmake ../tensorflow_src/tensorflow/lite/c ${{ BUILD_OPTIONS }}
+        cmake ../tensorflow_src/tensorflow/lite/c ${{ github.event.inputs.BUILD_OPTIONS }}
         cmake --build .
         
     - name: output CWD
