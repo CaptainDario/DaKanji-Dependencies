@@ -6,10 +6,12 @@ name: Build TF Lite for MacOS
 on:
 
   workflow_call:
-    secrets:
+    inputs:
       TF_VERSION: 
+        type: string
         required: true
       BUILD_OPTIONS:
+        type: string
         required: false
 
   # Allows you to run this workflow manually from the Actions tab
