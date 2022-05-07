@@ -24,7 +24,7 @@ jobs:
       BUILD_OPTIONS: BUILD_OPTIONS
 
   linux-build:
-    uses: ./.github/workflows/build_linux.yaml
+    uses: ./.github/workflows/build_ubuntu.yaml
     with:
       TF_VERSION: TF_VERSION
       BUILD_OPTIONS: BUILD_OPTIONS
