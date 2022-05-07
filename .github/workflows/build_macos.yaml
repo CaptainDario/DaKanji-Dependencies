@@ -5,15 +5,6 @@ name: Build TF Lite for MacOS
 # Controls when the workflow will run
 on:
 
-  workflow_call:
-    inputs:
-      TF_VERSION: 
-        type: string
-        required: true
-      BUILD_OPTIONS:
-        type: string
-        required: false
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
     inputs:
@@ -40,14 +31,14 @@ jobs:
       run: |
         git clone https://github.com/tensorflow/tensorflow tensorflow_src
         cd tensorflow_src
-        git checkout $TF_VERSION
+        git checkout ${{ github.event.inputs.TF_VERSION }}
         cd ..
     
     - name: Build TF Lite
       run: |
         mkdir tflite_build
         cd tflite_build
-        cmake ../tensorflow_src/tensorflow/lite/c $BUILD_OPTIONS
+        cmake ../tensorflow_src/tensorflow/lite/c ${{ github.event.inputs.BUILD_OPTIONS }}
         cmake --build .
         
     - name: output CWD
