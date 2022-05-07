@@ -18,19 +18,19 @@ on:
 
 jobs:
   windows-build:
-    uses: ./.github/workflows/build_windows.yml
+    uses: ./.github/workflows/build_windows.yaml
     with:
       TF_VERSION: TF_VERSION
       BUILD_OPTIONS: BUILD_OPTIONS
 
   linux-build:
-    uses: ./.github/workflows/build_linux.yml
+    uses: ./.github/workflows/build_linux.yaml
     with:
       TF_VERSION: TF_VERSION
       BUILD_OPTIONS: BUILD_OPTIONS
 
   macos-build:
-    uses: ./.github/workflows/build_macos.yml
+    uses: ./.github/workflows/build_macos.yaml
     with:
       TF_VERSION: TF_VERSION
       BUILD_OPTIONS: BUILD_OPTIONS
