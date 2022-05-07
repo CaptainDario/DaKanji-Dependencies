@@ -11,7 +11,7 @@ on:
       TF_VERSION: 
         required: true
       BUILD_OPTIONS:
-        required: true
+        required: false
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,7 +22,7 @@ on:
         default: "r2.8"
       BUILD_OPTIONS:
         description: 'Enter the build options with which TF Lite binaries should be built.'
-        required: true
+        required: false
         default: "-DTFLITE_ENABLE_XNNPACK=ON -DTFLITE_ENABLE_GPU=ON"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
