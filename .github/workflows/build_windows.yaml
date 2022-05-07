@@ -14,7 +14,7 @@ on:
         default: "r2.8"
       BUILD_OPTIONS:
         description: 'Enter the build options with which TF Lite binaries should be built.'
-        required: false
+        required: true
         default: "-DTFLITE_ENABLE_XNNPACK=ON -DTFLITE_ENABLE_GPU=ON"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -22,7 +22,7 @@ jobs:
 
   build-windows:
     # The type of runner that the job will run on
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
