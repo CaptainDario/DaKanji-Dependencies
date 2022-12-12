@@ -1,0 +1,5 @@
+# ignore tensorflow sources / builds
+tflite_build
+tensorflow_src
+build
+.DS_Store
