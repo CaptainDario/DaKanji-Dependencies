@@ -18,7 +18,7 @@ The binaries can manually build with make (make and cmake need to be on `$PATH`)
 By default they are built with openCL GPU delegate support and otherwise default settings.
 
 ``` bash
-# macos (creates universal binaries on apple silicone, other systems have not been tested)
+# macos (creates x86, arm64 and universal binaries on apple silicone, other systems have not been tested)
 make mac
 
 # windows (creates )
