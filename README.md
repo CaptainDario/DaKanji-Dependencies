@@ -1,7 +1,22 @@
 
-# TensorflowLite-Binaries
+# DaKanji-Dependencies
 
-This repo contains some pre-built Tensorflow Lite binaries for Linux (x86), Windows and Mac OS (arm, x86, universal).
+A repository to bundle dependencies such as dynamic libraries, modified packages and assets used by DaKanji.
+
+The release section contains files matching the DaKanji releases
+* mecab dictionary
+* mecab windows .dll
+* tensorflow lite dynamic libraries
+
+## flutter_appavailability
+Custom version of `flutter_appavailability` to make the project buildable again.
+
+## lilquid_swipe_flutter
+Custom version of `lilquid_swipe_flutter` to match the behavior desired in DaKanji
+
+## TensorflowLite-Binaries
+
+Github actions to build TF Lite desktop binaries for Linux, Windows and Mac OS and publish them in the release section.
 
 Building follows the [official CMake guide](https://www.tensorflow.org/lite/guide/build_cmake) ([cross compiling guide](https://www.tensorflow.org/lite/guide/build_cmake_arm))
 
