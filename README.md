@@ -2,11 +2,7 @@
 # DaKanji-Dependencies
 
 A repository to bundle dependencies such as dynamic libraries, modified packages and assets used by DaKanji.
-
-The release section contains files matching the DaKanji releases
-* mecab dictionary
-* mecab windows .dll
-* tensorflow lite dynamic libraries
+The release section contains those files matching the DaKanji releases.
 
 ## flutter_appavailability
 Custom version of `flutter_appavailability` to make the project buildable again.
