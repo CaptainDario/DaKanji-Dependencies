@@ -49,7 +49,7 @@ jobs:
         mkdir tflite_build
         cd tflite_build
         cmake ../tensorflow_src/tensorflow/lite/c ${{ github.event.inputs.BUILD_OPTIONS }}
-        cmake --build .
+        cmake --build . -j --config Release
         
     - name: output CWD
       run: ls tflite_build/
