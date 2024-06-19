@@ -52,11 +52,11 @@ jobs:
         cmake --build .
         
     - name: output CWD
-      run: ls -a tflite_build/
+      run: ls tflite_build/
           
     - name: Upload TF Lite build 
       uses: actions/upload-artifact@v3
       with:
         name: tensorflowlite_c-win.dll
-        path: tflite_build/	tensorflowlite_c.dll
+        path: tflite_build/Release/tensorflowlite_c.dll
 
